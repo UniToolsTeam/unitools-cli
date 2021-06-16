@@ -14,7 +14,7 @@ The C# interface to work with CLI from Unity3D Editor
 
 > You will need to have git installed and set in your system PATH.
 
-Add the following to `Packages/manifest.json`:
+Add the following to `Packages/manifest.json` where x.x.x the version (tag) check [Latest Releases](../../releases/latest):
 
 ```
 {

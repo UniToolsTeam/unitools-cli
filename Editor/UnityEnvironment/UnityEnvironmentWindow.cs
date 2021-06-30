@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace UniTools.CLI.Editor
 {
@@ -8,6 +9,7 @@ namespace UniTools.CLI.Editor
     {
         private static readonly UnityEnvironmentVariablesHeaderPresenter Header = new UnityEnvironmentVariablesHeaderPresenter();
         private readonly List<UnityEnvironmentVariableEditorPresenter> m_presenters = new List<UnityEnvironmentVariableEditorPresenter>();
+        private Vector2 scrollPos = default;
 
         [MenuItem("Tools/CLI/" + nameof(UnityEnvironment))]
         public static void Open()
@@ -34,10 +36,15 @@ namespace UniTools.CLI.Editor
         {
             Header.Draw();
             IEnumerable<UnityEnvironmentVariableModel> variables = UnityEnvironment.Variables;
+
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+
             for (int i = 0; i < variables.Count(); i++)
             {
                 m_presenters[i].Draw(variables.ElementAt(i));
-            }
+            }          
+
+            EditorGUILayout.EndScrollView();
         }
     }
 }

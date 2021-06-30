@@ -7,6 +7,20 @@ namespace UniTools.CLI
         , ICliToolFriendlyName
     {
         private string m_version = string.Empty;
+        private string m_path = string.Empty;
+
+        public WindowsCmd()
+        {
+            UnityEnvironmentVariableModel comSpec = UnityEnvironment.Get("ComSpec");
+            if (comSpec != null)
+            {
+                m_path = comSpec.Value;
+            }
+            else
+            {
+                UnityEngine.Debug.LogWarning($"{nameof(WindowsCmd)}: failed to find ComSpec path!");
+            }
+        }
 
         public string Version
         {
@@ -21,7 +35,8 @@ namespace UniTools.CLI
             }
         }
 
-        public override string Path => "cmd.exe";
+        public override string Path => m_path;
+
         public string Name => nameof(WindowsCmd);
 
         public override ToolResult Execute(string arguments = null, string workingDirectory = null)
@@ -43,11 +58,13 @@ namespace UniTools.CLI
                 {
                     WorkingDirectory = workingDirectory,
                     FileName = Path,
-                    Arguments = $"-c \"{escapedArgs}\"",
+                    Arguments = $"/c \"{escapedArgs}\"",
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
                     CreateNoWindow = true,
-                    RedirectStandardError = true
+                    RedirectStandardError = true,
+                    StandardErrorEncoding = System.Text.Encoding.UTF8,
+                    StandardOutputEncoding = System.Text.Encoding.UTF8
                 }
             };
             process.Start();

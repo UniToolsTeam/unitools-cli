@@ -11,8 +11,8 @@ namespace UniTools.CLI
         public override BaseCliTool Create()
         {
             return new AppCenter(
-                PathResolver.Default.Execute(AppCenter.ToolName).Output.Replace(Environment.NewLine, string.Empty),
-                CommandLine.Default);
+               PathResolver.Default.Execute(AppCenter.ToolName).Output.Split(Environment.NewLine.ToCharArray())?[0],
+               CommandLine.Default);
         }
     }
 }

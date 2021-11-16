@@ -51,8 +51,13 @@ namespace UniTools.CLI
                 return;
             }
 
-            Environment.SetEnvironmentVariable(pathName, $"{path}:{newValue}");
+#if UNITY_EDITOR_OSX
+            Environment.SetEnvironmentVariable(pathName, $"{path}:{newValue}"); 
+#elif UNITY_EDITOR_WIN
+            Environment.SetEnvironmentVariable(pathName, $"{path}{newValue}");
+#endif
             m_variables = null;
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace UniTools.CLI
             new WindowsCmd();
 #else
 //TODO Create Unsupported tool!
-        default
+        default;
 #endif
     }
 }

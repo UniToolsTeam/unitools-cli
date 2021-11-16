@@ -40,6 +40,11 @@ namespace UniTools.CLI
 
         public override ToolResult Execute(string arguments = null, string workingDirectory = null)
         {
+            if (!IsInstalled)
+            {
+                throw new ToolNotInstalledException();
+            }
+            
             if (string.IsNullOrEmpty(arguments))
             {
                 arguments = string.Empty;

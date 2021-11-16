@@ -1,7 +1,9 @@
 using UniTools.CLI;
 using UnityEngine;
 
+#if UNITY_IOS
 [assembly: XCodeBuild]
+#endif
 
 namespace UniTools.CLI
 {

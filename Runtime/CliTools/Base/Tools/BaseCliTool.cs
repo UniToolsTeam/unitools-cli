@@ -4,7 +4,21 @@ namespace UniTools.CLI
         ICliToolPath
         , ICliToolInstalled
     {
-        public virtual bool IsInstalled => !string.IsNullOrEmpty(Path);
+        public bool IsInstalled
+        {
+            get
+            {
+                try
+                {
+                    return System.IO.Path.IsPathRooted(Path);
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         public abstract string Path { get; }
         public abstract ToolResult Execute(string arguments = null, string workingDirectory = null);
     }

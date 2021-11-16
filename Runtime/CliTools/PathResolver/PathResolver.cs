@@ -10,7 +10,7 @@ namespace UniTools.CLI
             new WindowsWhere(CommandLine.Default);
 #else
 //TODO Create Unsupported tool!
-        default
+        default;
 #endif
 
         protected readonly CommandLine CommandLine = default;

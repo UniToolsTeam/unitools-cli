@@ -1,15 +1,13 @@
 {
   "displayName": "UniTools.CLI",
   "name": "com.unitools.cli",
-  "version": "0.0.0",
+  "version": "0.0.1-preview",
   "unity": "2019.1",
-  "description": "Cli Tools",
+  "description": "CLI tools with C# code interface for Unity3D",
   "keywords": [
     "unity",
     "unity3d",
     "cli",
-    "CI",
-    "CD",
     "C#"
   ],
   "category": "Libraries",

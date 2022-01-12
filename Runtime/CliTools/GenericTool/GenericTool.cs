@@ -5,13 +5,15 @@ namespace UniTools.CLI
     {
         private readonly CommandLine m_commandLine = default;
 
-        public GenericTool(string executable, CommandLine commandLine)
+        // public GenericTool(string executable, CommandLine commandLine)
+        public GenericTool(string executable, string path, CommandLine commandLine)
         {
-            Path = executable;
+            Name = executable;
+            Path = path;
             m_commandLine = commandLine;
         }
 
-        public string Name => nameof(GenericTool);
+        public string Name { get; private set; }
 
         public override string Path { get; }
 

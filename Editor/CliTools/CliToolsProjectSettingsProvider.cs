@@ -31,19 +31,11 @@ namespace UniTools.CLI.Editor
                 EditorGUILayout.Space(1);
             }
 
-            bool refresh = GUILayout.Button("Refresh");
-            if (refresh)
-            {
-                Cli.Refresh();
-                m_presenters.Clear();
-                Show();
-            }
-
             EditorGUILayout.HelpBox("If the CLI tool is installed but not visible in editor after \"Refresh\", try to: \n-recompile the code base or restart Unity Editor\n-check the PATH in the \"Tools/CLI/UnityEnvironment\".", MessageType.Info);
 
             if (EditorGUILayout.LinkButton("How to change PATH in UnityEnvironment?"))
             {
-                Application.OpenURL("https://github.com/UniToolsTeam/unitools-cli#unitools-cli");
+                Application.OpenURL("https://github.com/UniToolsTeam/unitools-cli#unity-enviroment");
             }
         }
 

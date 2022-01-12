@@ -2,7 +2,7 @@ namespace UniTools.CLI
 {
     public abstract class PathResolver : BaseCliTool
     {
-        internal static readonly PathResolver Default =
+        public static readonly PathResolver Default =
 #if UNITY_EDITOR_OSX
             new OsxWhich(CommandLine.Default);
 

@@ -2,7 +2,7 @@ namespace UniTools.CLI
 {
     public abstract class CommandLine : BaseCliTool
     {
-        internal static readonly CommandLine Default =
+        public static readonly CommandLine Default =
 #if UNITY_EDITOR_OSX
             new OsxTerminal();
 

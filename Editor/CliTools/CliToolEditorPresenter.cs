@@ -19,9 +19,13 @@ namespace UniTools.CLI.Editor
                 m_name = name.Name;
             }
 
-            if (model is ICliToolVersion version)
+
+            if (model.IsInstalled)
             {
-                m_version = version.Version;
+                if (model is ICliToolVersion version)
+                {
+                    m_version = version.Version;
+                }
             }
 
             if (model is ICliToolHelpLink help)

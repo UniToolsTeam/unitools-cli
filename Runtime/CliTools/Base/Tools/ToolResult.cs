@@ -27,8 +27,6 @@ namespace UniTools.CLI
             builder.AppendLine($"{nameof(Output)}={Output}");
 
             return builder.ToString();
-
-            // return $"{nameof(ExitCode)}={ExitCode}\n{nameof(Error)}={Error}\n{nameof(Output)}={Output}";
         }
     }
 }

@@ -1,5 +1,4 @@
-
-# This package is no longer supported.
+# This tool is legacy and not supported anymore, please use [UniTools Build](https://github.com/UniToolsTeam/unitools-build)
 
 # UniTools CLI
 The C# interface to work with CLI from Unity3D Editor

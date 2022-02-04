@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace UniTools.CLI
 {
     public sealed class ToolResult
@@ -15,7 +17,16 @@ namespace UniTools.CLI
 
         public override string ToString()
         {
-            return $"{nameof(ExitCode)}={ExitCode}\n{nameof(Error)}={Error}\n{nameof(Output)}={Output}";
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine($"{nameof(ExitCode)}={ExitCode}");
+            if (!string.IsNullOrEmpty(Error))
+            {
+                builder.AppendLine($"{nameof(Error)}={Error}");
+            }
+
+            builder.AppendLine($"{nameof(Output)}={Output}");
+
+            return builder.ToString();
         }
     }
 }

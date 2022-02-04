@@ -1,27 +1,17 @@
 using UniTools.CLI;
 
-[assembly: AppCenter]
+[assembly: Tar]
 
 namespace UniTools.CLI
 {
-    public sealed class AppCenter : BaseCliTool
+    public sealed class Tar : BaseCliTool
         , ICliToolVersion
         , ICliToolFriendlyName
-        , ICliToolHelpLink
     {
-        public const string ToolName = "appcenter";
-
         private readonly CommandLine m_commandLine = default;
         private string m_version = string.Empty;
 
-        public AppCenter(string path, CommandLine commandLine)
-        {
-            Path = path;
-            m_commandLine = commandLine;
-        }
-
-        public string Name => nameof(AppCenter);
-        public string Link => "https://docs.microsoft.com/en-us/appcenter/cli/";
+        public override string Path { get; } = default;
 
         public string Version
         {
@@ -36,7 +26,13 @@ namespace UniTools.CLI
             }
         }
 
-        public override string Path { get; } = default;
+        public string Name => $"{nameof(Tar)} (archive tool)";
+
+        public Tar(string path, CommandLine commandLine)
+        {
+            Path = path;
+            m_commandLine = commandLine;
+        }
 
         public override ToolResult Execute(string arguments = null, string workingDirectory = null)
         {
@@ -44,7 +40,7 @@ namespace UniTools.CLI
             {
                 throw new ToolNotInstalledException();
             }
-            
+
             if (string.IsNullOrEmpty(arguments))
             {
                 arguments = string.Empty;
@@ -56,11 +52,6 @@ namespace UniTools.CLI
             }
 
             return m_commandLine.Execute($"{Path} {arguments}", workingDirectory);
-        }
-
-        public override string ToString()
-        {
-            return $"{nameof(AppCenter)}: {Path}, {Version}";
         }
     }
 }

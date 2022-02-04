@@ -1,7 +1,7 @@
-using UniTools.CLI;
 using UnityEngine;
 
 #if UNITY_IOS
+using UniTools.CLI;
 [assembly: XCodeBuild]
 #endif
 

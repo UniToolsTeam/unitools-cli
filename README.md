@@ -1,3 +1,6 @@
+
+# This package is no longer supported.
+
 # UniTools CLI
 The C# interface to work with CLI from Unity3D Editor
 
